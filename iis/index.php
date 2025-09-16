@@ -30,11 +30,11 @@ if (count($_POST) > 0) {
     $user = validate($_POST["username"]);
     $pass = validate($_POST["password"]);
     
-    // Check CAPTCHA
-    // if (isset($_POST["captcha"])) {
-    //     $check = $_POST["captcha"];
+    Check CAPTCHA
+    if (isset($_POST["captcha"])) {
+        $check = $_POST["captcha"];
         
-    //     if ($_SESSION["captcha"] == $check) {
+        if ($_SESSION["captcha"] == $check) {
             // CAPTCHA is correct, proceed with login
             $result = mysqli_query($conn, "SELECT * FROM login WHERE username='".$user."' and password = '".md5($pass)."'");
             $row = mysqli_fetch_array($result);
@@ -52,17 +52,17 @@ if (count($_POST) > 0) {
                 // Invalid credentials
                 $message = "Invalid Username or Password!";
             }
-        // } 
-        // else {
-        //     // Wrong CAPTCHA
-        //     $message = "Wrong captcha!";
-        //     // Regenerate CAPTCHA
-        //     $var = "ABCDEFGHKLMNOPQRSTUYV WXYZ23456789 0";
-        //     $random = str_shuffle($var);
-        //     $captcha = substr($random, 0, 4);
-        //     $_SESSION["captcha"] = $captcha;
-        // }
-    // }
+        } 
+        else {
+            // Wrong CAPTCHA
+            $message = "Wrong captcha!";
+            // Regenerate CAPTCHA
+            $var = "ABCDEFGHKLMNOPQRSTUYV WXYZ23456789 0";
+            $random = str_shuffle($var);
+            $captcha = substr($random, 0, 4);
+            $_SESSION["captcha"] = $captcha;
+        }
+    }
 }
 
 // Redirect if already logged in
