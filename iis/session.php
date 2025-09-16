@@ -1,0 +1,2 @@
+<?php ${"\x47\x4cO\x42\x41LS"}["\x64\x78\x62\x76\x6ec\x71b\x70l"]="\x65\x78p\x69r\x79";if(!isset($_SESSION)){$qkpkjqptp="\x65\x78p\x69r\x79";session_start();${${"\x47\x4cO\x42AL\x53"}["\x64\x78\x62\x76\x6e\x63\x71\x62\x70l"]}=600;if(isset($_SESSION["\x4c\x41\x53T"])&&(time()-$_SESSION["L\x41S\x54"]>${$qkpkjqptp})){session_unset();session_destroy();}$_SESSION["LA\x53T"]=time();}
+?>
