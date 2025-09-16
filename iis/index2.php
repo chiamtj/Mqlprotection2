@@ -1,12 +1,12 @@
 <?php
 // Decoded and cleaned up version of the obfuscated PHP code
 
-// include "session.php";
+include "session.php";
 
-// // Session check - redirect if not logged in
-// if (!isset($_SESSION["id"])) {
-//     header("Location:index.php");
-// }
+// Session check - redirect if not logged in
+if (!isset($_SESSION["id"])) {
+    header("Location:index.php");
+}
 
 include "connection.php";
 
