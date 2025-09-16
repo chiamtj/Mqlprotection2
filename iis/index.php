@@ -30,7 +30,7 @@ if (count($_POST) > 0) {
     $user = validate($_POST["username"]);
     $pass = validate($_POST["password"]);
     
-    Check CAPTCHA
+    // Check CAPTCHA
     if (isset($_POST["captcha"])) {
         $check = $_POST["captcha"];
         
@@ -38,15 +38,13 @@ if (count($_POST) > 0) {
             // CAPTCHA is correct, proceed with login
             $result = mysqli_query($conn, "SELECT * FROM login WHERE username='".$user."' and password = '".md5($pass)."'");
             $row = mysqli_fetch_array($result);
-            
+
             if (is_array($row)) {
                 // Login successful
                 $_SESSION["id"] = $row["id"];
                 $_SESSION["username"] = $row["username"];
                 $_SESSION["expire"] = time() + (30 * 60); // 30 minutes
                 header("Location: " . $_SERVER["HTTP_REFERER"]);
-
-                header("Location: index2.php");
                 
             } else {
                 // Invalid credentials
